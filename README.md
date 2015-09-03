@@ -1,0 +1,1 @@
+A sample web app created using Spring boot and AngularJS showcasing concenpts and technologies such as Model View Controller (MVC), Model View ViewModel (MVVM), dependency injection (DI), single-page application (SPA), data binding, build automation using Maven, in-memory database, data persistence, REST web service architecture, object-oriented design, AJAX, JSON, and so on.
