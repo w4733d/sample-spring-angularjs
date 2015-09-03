@@ -1,0 +1,21 @@
+<h2>Batches</h2>
+
+<table style="width:50%">
+    <tr>
+        <th></th>
+        <th>Client Name</th>
+        <th>Batch ID</th>
+        <th>Status</th>
+        <th>Last Update</th>
+    </tr>
+    <tr ng-repeat="batch in batches">
+        <td><input type="checkbox" ng-model="batch.selected" ng-change="onCheckBoxClicked(batch)"></td>
+        <td>{{batch.clientName}}</td>
+        <td>{{batch.batchId}}</td>
+        <td>{{batch.status}}</td>
+        <td>{{batch.lastUpdate | date : 'MMM d, yyyy - hh:mm:ss a'}}</td>
+    </tr>
+</table>
+
+<button ng-disabled="disableApproveButton()" ng-click="approve()">Approve</button>
+<button ng-disabled="disableApproveButton()" ng-click="reject()">Reject</button>

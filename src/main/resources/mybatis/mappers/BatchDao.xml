@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.waleedkhan.sample.dao.BatchDao">
+
+    <resultMap id="batchMapper" type="com.waleedkhan.sample.model.Batch">
+        <id property="batchId" column="batch_id"/>
+        <result property="lastUpdate" column="last_update"/>
+        <result property="status" column="status"
+                typeHandler="com.waleedkhan.sample.typehandlers.HasCodeEnumTypeHandler"/>
+        <result property="clientName" column="client_name"/>
+    </resultMap>
+
+    <select id="getBatches" resultMap="batchMapper">
+        SELECT *
+        FROM batches
+    </select>
+
+
+    <update id="updateBatches">
+        UPDATE batches
+        SET
+        status = #{status, javaType=com.waleedkhan.sample.model.Status, typeHandler=com.waleedkhan.sample.typehandlers.HasCodeEnumTypeHandler},
+        last_update = now()
+        WHERE batch_id IN
+        <foreach collection="batchIds" item="batchId" open="(" separator=", " close=")">
+            #{batchId}
+        </foreach>
+    </update>
+
+</mapper>

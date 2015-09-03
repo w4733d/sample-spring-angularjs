@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Khan Co Administration Panel</title>
+    </head>
+
+    <body>
+        <h1> Khan Co Administration Panel </h1>
+
+        <a href="#/batches">Batches</a>
+        •
+        <a href="#/template">???</a>
+        •
+        <a href="#/template">???</a>
+        •
+        <a href="#/template">???</a>
+
+        <div ng-view>
+
+        <!-- TODO - Use bower to package these -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-route.min.js"></script>
+
+        <script src="app.js"></script>
+        <script src="services/batchService.js"></script>
+        <script src="controllers/BatchCtrl.js"></script>
+    </body>
+</html>
